@@ -1,18 +1,64 @@
-@media only screen and (max width: 600px) {
-	#container {
-		width: 250px;
-	}
+nav {
+	width: 100%;
+	background-color: red;
+}
+#headbar {
+	padding: 10px;
+	width: 50%;
+	margin: auto;
+}
+#headbar a {
+	text-decoration: none;
+	color: white;
 }
 #container {
-	width: 600px;
+	display: flex;
+	padding: 10px;
+	width: 90%;
+	justify-content: center;
+	margin: auto;
 }
-.flexbox {
-	display:flex;
+#quiz {
+	width: 50%;
 }
-.options {
+@media screen and (max-width: 1200px) {
+	#headbar {
+		width: 60%;
+	}
+	#quiz {
+		width: 60%;
+	}
+}
+@media screen and (max-width: 992px) {
+	#headbar {
+		width: 70%;
+	}
+	#quiz {
+		width: 70%;
+	}
+}
+@media screen and (max-width: 768px) {
+	#headbar {
+		width: 80%;
+	}
+	#quiz {
+		width: 80%;
+	}
+}
+@media screen and (max-width: 576px) {
+	#headbar {
+		width: 90%;
+	}
+	#quiz {
+		width: 90%;
+	}
+}
+#options {
+	display: flex;
 	flex-direction: column;
 }
-.nav-buttons {
+#nav-buttons {
+	display: flex;
 	margin-top: 20px;
 	justify-content: space-between;
 }
