@@ -1,0 +1,18 @@
+@media only screen and (max width: 600px) {
+	#container {
+		width: 250px;
+	}
+}
+#container {
+	width: 600px;
+}
+.flexbox {
+	display:flex;
+}
+.options {
+	flex-direction: column;
+}
+.nav-buttons {
+	margin-top: 20px;
+	justify-content: space-between;
+}
