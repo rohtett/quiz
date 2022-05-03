@@ -42,7 +42,15 @@ let instructionNext = function() {
 		OPTIONS[2].checked===true&&
 		OPTIONS[3].checked===true
 	) {
-		window.location.href = 'wow-class-quiz.html';
+		//question number tracker
+		var progress = 1;
+		sessionStorage.setItem("progress", progress);
+		//tracker for the answer from each question
+		sessionStorage.setItem(1, undefined);
+		sessionStorage.setItem(2, undefined);
+		sessionStorage.setItem(3, undefined);
+		sessionStorage.setItem(4, undefined);
+		window.location.href = 'wow-class-quiz-1.html';
 	}
 }
 //question one answer one
