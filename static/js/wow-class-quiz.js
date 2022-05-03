@@ -5,15 +5,18 @@ window.onload = function() {
 		window.location.href = "result.html";
 	}
 	if (localStorage.state == "parse") {
+		//sorting an object; first add each key-value pair as an array
+		//https://stackoverflow.com/questions/1069666/sorting-object-property-by-values
 		let results = JSON.parse(localStorage.result);
 		let resultValues = [];
 		for (var value in results) {
 			resultValues.push([value, results[value]]);
 		}
+		//sort the array
 		resultValues.sort(function(a, b) {
 			return b[1] - a[1];
 		});
-		console.log(resultValues);
+		//timeout to prevent loop refreshing page
 		setTimeout(function() {
 			localStorage.setItem("state", "submit");
 		}, 25);
@@ -46,20 +49,27 @@ function restart() {
 	sessionStorage.setItem(4, undefined);
 	window.location.href = 'wow-class-quiz-1.html';
 }
-	
+
+//next function for the rest of the pages
 function next() {
+	//interate through every radio option
 	for (let i = 0; i < OPTIONS.length; i++) {
+		//find the one that's selected
 		if (OPTIONS[i].checked===true) {
 			let progress = parseInt(sessionStorage.progress);
 			let question = sessionStorage.getItem(progress)
 			question = OPTIONS[i].id+"()";
 			sessionStorage.setItem(progress, question);
 			progress += 1;
+			//if not at question
 			if (progress < sessionStorage.length) {
 				sessionStorage.setItem("progress", progress)
+				//go to next question and end loop
 				window.location.href = `wow-class-quiz-${progress}.html`;
 				break
+			//at last question
 			} else {
+				//execute all question data calculations
 				eval(sessionStorage.getItem(1));
 				//eval(sessionStorage.getItem(2));
 				//eval(sessionStorage.getItem(3));
@@ -68,6 +78,7 @@ function next() {
 				localStorage.setItem("state", "submit");
 				window.location.href = "result.html";
 			}
+		//none of the checkmarks are selected
 		} else {
 			document.getElementById("error").style.visibility = "visible";
 		}
