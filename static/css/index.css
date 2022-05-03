@@ -57,6 +57,10 @@ nav {
 	display: flex;
 	flex-direction: column;
 }
+#error {
+	color: red;
+	visibility: hidden;
+}
 #nav-buttons {
 	display: flex;
 	margin-top: 20px;
