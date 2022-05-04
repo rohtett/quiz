@@ -24,6 +24,7 @@ window.onload = function() {
 			localStorage.setItem("state", "submit");
 		}, 25);
 	}
+	document.getElementById("progress").value = (progress/(sessionStorage.length-1))
 }
 //declaration of variables
 const CLASSES = function() {
@@ -59,13 +60,14 @@ const CLASSES = function() {
 	this.unholyDeathKnight = 0;
 }
 var counter = new CLASSES();
-const OPTIONS = document.querySelectorAll("#options input");
+let progress = parseInt(sessionStorage.progress);
 //"next" function for instructional page
 function instructionNext() {
 	//calculating the .length of an Object
 	//https://stackoverflow.com/questions/5223/length-of-a-javascript-object
 	let selection = Object.keys(document.querySelectorAll("input:checked"));
 	if (selection.length == 4) {
+		//all 4 options have been checked
 		restart();
 	} else {
 		document.getElementById("error").style.visibility = "visible";
@@ -74,10 +76,10 @@ function instructionNext() {
 function restart() {
 	sessionStorage.clear();
 	localStorage.clear();
-	//question number tracker
+	//question number tracker reset
 	var progress = 1;
 	sessionStorage.setItem("progress", progress);
-	//tracker for the answer from each question
+	//placeholders for each question. this is used to track total progress
 	sessionStorage.setItem(1, undefined);
 	sessionStorage.setItem(2, undefined);
 	sessionStorage.setItem(3, undefined);
@@ -94,21 +96,21 @@ function back() {
 
 //next function for the rest of the pages
 function next() {
-	let selection = querySelector("input:checked");
+	//find the answer selected
+	let selection = document.querySelector("input:checked");
 	if (selection) {
-		let progress = parseInt(sessionStorage.progress);
-		let question = sessionStorage.getItem(progress)
-		question = selection.id+"()";
+		let question = selection.id+"()";
 		sessionStorage.setItem(progress, question);
 		progress += 1;
 		//if not at question
 		if (progress < sessionStorage.length) {
 			sessionStorage.setItem("progress", progress)
-			//go to next question and end loop
+			//go to next question
 			window.location.href = `wow-class-quiz-${progress}.html`;
 		//at last question
 		} else {
-			//execute all question data calculations
+			//execute calculator functions based of answers
+			//these functions affect the counter object created from CLASSES
 			eval(sessionStorage.getItem(1));
 			eval(sessionStorage.getItem(2));
 			eval(sessionStorage.getItem(3));
