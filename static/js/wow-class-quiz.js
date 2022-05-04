@@ -16,16 +16,16 @@ window.onload = function() {
 		values.sort(function(a, b) {
 			return b[1] - a[1];
 		});
-		console.log("Your top result: " + values[0][0]);
-		console.log(values);
 		setTimeout(function() {
 			//to make sure result.js loads their functions first
-			result(values[0][0]);
+			getResult(values);
 			//timeout to prevent infinite storage cycle refreshing the page
 			localStorage.setItem("state", "submit");
 		}, 25);
 	}
-	document.getElementById("progress").value = (progress/(sessionStorage.length-1))
+	if (document.getElementById("progress")) {
+		document.getElementById("progress").value = (progress/(sessionStorage.length-1))
+	}
 }
 //declaration of variables
 const CLASSES = function() {

@@ -61,19 +61,59 @@ nav {
 	color: red;
 	visibility: hidden;
 }
-#myBar {
-	width: 50%;
-	height: 30px;
-	background-color: red;
+#result-output {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 20px;
+}
+#result-output img {
+	height: 235px;
+}
+table {
+	width: 100%;
+}
+.specFocus {
+	background-color: black;
 	color: white;
+	border-left: 10px solid red;
+	border-right: 10px solid red;
+}
+tr::hover {
+	background-color: grey;
+}
+th {
+	margin-top: 5px;
+	justify-items: center;
+}
+table div {
+	text-align: right;
+}
+td {
+	width: 50%;
+}
+table progress {
+	height: 15px;
+	width: 100%;
+	background-color: transparent;
+	color: red;
+	-webkit-appearance: none;
+}
+table progress::-moz-progress-bar {
+	background-color: red;
+}
+table progress::-webkit-progress-value {
+	background: red;
+}
+table progress::-webkit-progress-bar {
+	background: transparent;
 }
 #progress {
 	width: 100%;
-	position: relative;
-	background: black;
 	color: red;
-	text-align: center; /* To center it horizontally (if you want) */
-	line-height: 30px; /* To center it vertically */
+	-webkit-appearance: none;
+}
+#progress::-moz-progress-bar {
+	background-color: red;
 }
 #progress::-webkit-progress-value {
 	background: red;
