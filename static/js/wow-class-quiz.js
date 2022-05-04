@@ -8,19 +8,20 @@ window.onload = function() {
 		//sorting an object; first add each key-value pair as an array
 		//https://stackoverflow.com/questions/1069666/sorting-object-property-by-values
 		let results = JSON.parse(localStorage.result);
-		let resultValues = [];
+		let values = [];
 		for (var value in results) {
-			resultValues.push([value, results[value]]);
+			values.push([value, results[value]]);
 		}
 		//sort the array
-		resultValues.sort(function(a, b) {
+		values.sort(function(a, b) {
 			return b[1] - a[1];
 		});
-		console.log("Your top result: " + resultValues[0][0]);
-		console.log(resultValues);
-		//results(resultValues[0][0];
-		//timeout to prevent loop refreshing page
+		console.log("Your top result: " + values[0][0]);
+		console.log(values);
 		setTimeout(function() {
+			//to make sure result.js loads their functions first
+			result(values[0][0]);
+			//timeout to prevent infinite storage cycle refreshing the page
 			localStorage.setItem("state", "submit");
 		}, 25);
 	}
