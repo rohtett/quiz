@@ -16,72 +16,13 @@ window.onload = function() {
 		resultValues.sort(function(a, b) {
 			return b[1] - a[1];
 		});
+		console.log("Your top result: " + resultValues[0][0]);
+		console.log(resultValues);
+		//results(resultValues[0][0];
 		//timeout to prevent loop refreshing page
 		setTimeout(function() {
 			localStorage.setItem("state", "submit");
 		}, 25);
-	}
-}	
-//"next" function for instructional page
-function instructionNext() {
-	if (
-		OPTIONS[0].checked===true&&
-		OPTIONS[1].checked===true&&
-		OPTIONS[2].checked===true&&
-		OPTIONS[3].checked===true
-	) {
-		restart();
-	} else {
-		OPTIONS[3].focus();
-		document.getElementById("error").style.visibility = "visible";
-	}		
-}
-function restart() {
-	sessionStorage.clear();
-	localStorage.clear();
-	//question number tracker
-	var progress = 1;
-	sessionStorage.setItem("progress", progress);
-	//tracker for the answer from each question
-	sessionStorage.setItem(1, undefined);
-	sessionStorage.setItem(2, undefined);
-	sessionStorage.setItem(3, undefined);
-	sessionStorage.setItem(4, undefined);
-	window.location.href = 'wow-class-quiz-1.html';
-}
-
-//next function for the rest of the pages
-function next() {
-	//interate through every radio option
-	for (let i = 0; i < OPTIONS.length; i++) {
-		//find the one that's selected
-		if (OPTIONS[i].checked===true) {
-			let progress = parseInt(sessionStorage.progress);
-			let question = sessionStorage.getItem(progress)
-			question = OPTIONS[i].id+"()";
-			sessionStorage.setItem(progress, question);
-			progress += 1;
-			//if not at question
-			if (progress < sessionStorage.length) {
-				sessionStorage.setItem("progress", progress)
-				//go to next question and end loop
-				window.location.href = `wow-class-quiz-${progress}.html`;
-				break
-			//at last question
-			} else {
-				//execute all question data calculations
-				eval(sessionStorage.getItem(1));
-				//eval(sessionStorage.getItem(2));
-				//eval(sessionStorage.getItem(3));
-				//eval(sessionStorage.getItem(4));
-				localStorage.setItem("result", JSON.stringify(counter));
-				localStorage.setItem("state", "submit");
-				window.location.href = "result.html";
-			}
-		//none of the checkmarks are selected
-		} else {
-			document.getElementById("error").style.visibility = "visible";
-		}
 	}
 }
 //declaration of variables
@@ -119,3 +60,65 @@ const CLASSES = function() {
 }
 var counter = new CLASSES();
 const OPTIONS = document.querySelectorAll("#options input");
+//"next" function for instructional page
+function instructionNext() {
+	//calculating the .length of an Object
+	//https://stackoverflow.com/questions/5223/length-of-a-javascript-object
+	let selection = Object.keys(document.querySelectorAll("input:checked"));
+	if (selection.length == 4) {
+		restart();
+	} else {
+		document.getElementById("error").style.visibility = "visible";
+	}		
+}
+function restart() {
+	sessionStorage.clear();
+	localStorage.clear();
+	//question number tracker
+	var progress = 1;
+	sessionStorage.setItem("progress", progress);
+	//tracker for the answer from each question
+	sessionStorage.setItem(1, undefined);
+	sessionStorage.setItem(2, undefined);
+	sessionStorage.setItem(3, undefined);
+	sessionStorage.setItem(4, undefined);
+	window.location.href = 'wow-class-quiz-1.html';
+}
+function back() {
+	let progress = parseInt(sessionStorage.progress);
+	progress -= 1;
+	sessionStorage.setItem("progress", progress)
+	//go to previous question
+	window.location.href = `wow-class-quiz-${progress}.html`;
+}
+
+//next function for the rest of the pages
+function next() {
+	let selection = querySelector("input:checked");
+	if (selection) {
+		let progress = parseInt(sessionStorage.progress);
+		let question = sessionStorage.getItem(progress)
+		question = selection.id+"()";
+		sessionStorage.setItem(progress, question);
+		progress += 1;
+		//if not at question
+		if (progress < sessionStorage.length) {
+			sessionStorage.setItem("progress", progress)
+			//go to next question and end loop
+			window.location.href = `wow-class-quiz-${progress}.html`;
+		//at last question
+		} else {
+			//execute all question data calculations
+			eval(sessionStorage.getItem(1));
+			eval(sessionStorage.getItem(2));
+			eval(sessionStorage.getItem(3));
+			eval(sessionStorage.getItem(4));
+			localStorage.setItem("result", JSON.stringify(counter));
+			localStorage.setItem("state", "submit");
+			window.location.href = "result.html";
+		}
+	//none of the checkmarks are selected
+	} else {
+		document.getElementById("error").style.visibility = "visible";
+	}
+}
