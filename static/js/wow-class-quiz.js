@@ -10,10 +10,8 @@ window.onload = () => {
 let progress = parseInt(sessionStorage.progress);
 //"next" function for instructional page
 const instructionNext = () => {
-	//calculating the .length of an Object
-	//https://stackoverflow.com/questions/5223/length-of-a-javascript-object
-	let selection = Object.keys(document.querySelectorAll("input:checked"));
-	if (selection.length == 4) {
+	let input = document.getElementById("4");
+	if (input.checked) {
 		//all 4 options have been checked
 		if (sessionStorage.length > 0) {
 			let progress = sessionStorage.getItem("progress");

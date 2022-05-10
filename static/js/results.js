@@ -21,7 +21,7 @@ window.onload = () => {
 		});
 		getResult(values);
 	} else { 
-		window.location.replace=("index.html");
+		window.location.href=("index.html");
 	}
 }
 //declaration of variables
@@ -73,11 +73,23 @@ const parseResult = function(string) {
 	parseResult.prototype.parseSpec = function() {
 		return this.spec + " " + this.getClass()
 	}
-		
 }
 let tableLabels = document.querySelectorAll("table div");
 let tableProgress = document.querySelectorAll("table progress");
-
+const classInfo = (values) => {
+	let topMatch = new parseResult(values[0]);
+	document.getElementById("title").innerHTML= topMatch.parseSpec();
+	let classBanner = topMatch.getClass()[0].replace(" ", "-") + "-" + "class" + "-"+ "banner" + ".png";
+	document.querySelector("#result-output img").src= `static/media/${classBanner}`
+	document.getElementById("specialisation-information").innerHTML = "";
+	let proff= (JSON.stringify(topMatch.getClass()[0]).replaceAll("\"", ""));
+	let specialisations = Object.keys(counter);
+	specialisations = specialisations.filter(value => value.includes(proff)&&value!=values[0]);
+	let offspecOne= new parseResult(specialisations[0]);
+	document.querySelector("#role-1 h6").innerHTML = offspecOne.spec;
+	let offspecTwo= new parseResult(specialisations[1]);
+	document.querySelector("#role-2 h6").innerHTML = offspecTwo.spec;
+}
 function getResult(values) {
 	let results = values.slice(0,5);
 	tableLabels[0].parentNode.parentNode.classList.add("specFocus");
@@ -94,10 +106,4 @@ function getResult(values) {
 			this.classList.add("specFocus");
 		})
 	})
-}
-const classInfo = (values) => {
-	let topMatch = new parseResult(values[0]);
-		document.getElementById("title").innerHTML= topMatch.parseSpec();
-		let classBanner = topMatch.getClass()[0].replace(" ", "-") + "-" + "class" + "-"+ "banner" + ".png";
-		document.querySelector("#result-output img").src= `static/media/${classBanner}`
 }

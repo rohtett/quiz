@@ -1,4 +1,5 @@
 "use strict";
+//class information
 //question one answer one
 let questionCount = 1;
 const playstyleCareful = () => {

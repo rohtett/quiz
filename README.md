@@ -32,7 +32,9 @@ This is a simple quiz which will allocate you a given class based off your answe
 ### results.html 
 - [x] A result display which includes a class banner relevant to the class they got assigned. Each class has the same banner regardless of which Specialisation they were assigned.
 - [x] The top five results given to the user based off the quiz answers that will show a progress bar relating to their compatability. Each result will navigate the user to the relevant Class and Specialisation combination page where they would be able to see their result. 
-- [ ] Information about the assigned class, which displays their other roles and other information relevant to the question topics.
+- [x] Information about the assigned class, which displays their other roles.
+- [ ] Information displayed about the playstyle of each specialisation result.
+- [ ] The ability to go to each relevant specialisation page by clicking on the specialisation name relevant to the class displayed.
 ## Technologies Used
 - [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
 -- The structure of the website was developed with HTML5
