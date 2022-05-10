@@ -24,8 +24,8 @@ This is a simple quiz which will allocate you a given class based off your answe
 - [x] Fully functional "Back" button which successfully takes you to the previous page without interrupting your progress. 
 - [x] Fully functional "Next" button to navigate you through the quiz.
 - [x] A reset button which will take you back to the beginning of the quiz and restart your progress.
-- [ ] A modal for when pressing the "Reset" button so that the user would not reset their progress unintentionally. 
-- [ ] A method of accessing the instructional information from any page in the case they forget the purpose of any navigation buttons. 
+- [x] A modal for when pressing the "Reset" button so that the user would not reset their progress unintentionally. 
+- [x] A method of accessing the instructional information from any page in the case they forget the purpose of any navigation buttons. 
 ### index.html
 - [x] An instructional page which can inform you as to what all of the buttons on the page will do. 
 - [x] An automatic redirect which will take the user to the results page as long as they have already completed the test without resetting their progress. 

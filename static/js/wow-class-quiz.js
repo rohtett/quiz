@@ -15,7 +15,12 @@ const instructionNext = () => {
 	let selection = Object.keys(document.querySelectorAll("input:checked"));
 	if (selection.length == 4) {
 		//all 4 options have been checked
-		restart();
+		if (sessionStorage.length > 0) {
+			let progress = sessionStorage.getItem("progress");
+			window.location.href = `wow-class-quiz-${progress}.html`;
+		} else {
+		confirmReset();
+		}
 	} else {
 		document.getElementById("error").style.visibility = "visible";
 	}		
@@ -31,7 +36,7 @@ const closeModal = () => {
 const confirmReset = () => {
 	sessionStorage.clear();
 	//question number tracker reset
-	var progress = 1;
+	let progress = 1;
 	sessionStorage.setItem("progress", progress);
 	//placeholders for each question. this is used to track total progress
 	sessionStorage.setItem(1, undefined);

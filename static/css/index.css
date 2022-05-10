@@ -3,6 +3,8 @@ nav {
 	background-color: red;
 }
 #headbar {
+	display: flex;
+	justify-content: space-between;
 	padding: 10px;
 	width: 50%;
 	margin: auto;
