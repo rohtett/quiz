@@ -21,6 +21,14 @@ const instructionNext = () => {
 	}		
 }
 const restart = () => {
+	const modal = document.getElementById("modal-background")
+	modal.style.display="block";
+}
+const closeModal = () => {
+	const modal = document.getElementById("modal-background")
+	modal.style.display="none";
+}
+const confirmReset = () => {
 	sessionStorage.clear();
 	//question number tracker reset
 	var progress = 1;

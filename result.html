@@ -13,10 +13,27 @@
 	<body>
 	<nav>
 		<div id="headbar">
-			<a onclick="restart()"><h1># Rohit's Quizzes</h1></a>
+			<a href="#" onclick="restart()"><h1># Rohit's Quizzes</h1></a>
 		</div>
 	</nav>
 	<div id="container">
+		<div id="modal-background">
+				<div id="modal">
+					<div>
+						<div>
+							Doing this will reset your progress. Are you sure you wish to restart?
+						</div>
+						<div id="modal-button">
+							<button onclick="closeModal()">
+								Back
+							</button>
+							<button onclick="confirmReset()">
+								Continue
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div id="quiz">
 				<h4>Which World of Warcraft Class Is the Best Choice for You?</h4>
 				<div id="result-output">
@@ -79,4 +96,7 @@
 		<script src="static/js/wow-class-quiz.js"></script>
 		<script src="static/js/results.js"></script>
 	</body>
+	<footer>
+		Website by Rohit Naidu.
+	</footer>
 </html>

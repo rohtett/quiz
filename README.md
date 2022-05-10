@@ -18,21 +18,21 @@ This is a simple quiz which will allocate you a given class based off your answe
 
 ## Features
 - [x] Completed features will be labelled as a selected checkbox.
-- [] Features that have yet to be implemented will be labelled as an unselected checkbox.
+- [ ] Features that have yet to be implemented will be labelled as an unselected checkbox.
 
 ### All Pages
 - [x] Fully functional "Back" button which successfully takes you to the previous page without interrupting your progress. 
 - [x] Fully functional "Next" button to navigate you through the quiz.
 - [x] A reset button which will take you back to the beginning of the quiz and restart your progress.
-- [] A modal for when pressing the "Reset" button so that the user would not reset their progress unintentionally. 
-- [] A method of accessing the instructional information from any page in the case they forget the purpose of any navigation buttons. 
+- [ ] A modal for when pressing the "Reset" button so that the user would not reset their progress unintentionally. 
+- [ ] A method of accessing the instructional information from any page in the case they forget the purpose of any navigation buttons. 
 ### index.html
 - [x] An instructional page which can inform you as to what all of the buttons on the page will do. 
 - [x] An automatic redirect which will take the user to the results page as long as they have already completed the test without resetting their progress. 
 ### results.html 
 - [x] A result display which includes a class banner relevant to the class they got assigned. Each class has the same banner regardless of which Specialisation they were assigned.
 - [x] The top five results given to the user based off the quiz answers that will show a progress bar relating to their compatability. Each result will navigate the user to the relevant Class and Specialisation combination page where they would be able to see their result. 
-- [] Information about the assigned class, which displays their other roles and other information relevant to the question topics.
+- [ ] Information about the assigned class, which displays their other roles and other information relevant to the question topics.
 ## Technologies Used
 - [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
 -- The structure of the website was developed with HTML5
