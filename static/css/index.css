@@ -78,7 +78,7 @@ table {
 	border-left: 10px solid red;
 	border-right: 10px solid red;
 }
-tr::hover {
+tr:hover {
 	background-color: grey;
 }
 th {

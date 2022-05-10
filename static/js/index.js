@@ -1,7 +1,7 @@
 "use strict";
 //question one answer one
-var questionCount = 1;
-let playstyleCareful = function() {
+let questionCount = 1;
+const playstyleCareful = () => {
 	counter.afflictionWarlock += 2;
 	counter.shadowPriest += 2;
 	counter.restorationDruid += 2;
@@ -27,7 +27,7 @@ let playstyleCareful = function() {
 	counter.frostDeathKnight -= 2;
 }
 
-let playstyleAdapt = function() {
+const playstyleAdapt = () => {
 	counter.feralDruid += 2;
 	counter.holyPaladin += 2;
 	counter.demonologyWarlock += 2;
@@ -53,7 +53,7 @@ let playstyleAdapt = function() {
 	counter.arcaneMage -= 2;
 }
 
-let playstyleReckless = function() {
+const playstyleReckless = () => {
 	counter.elementalShaman += 2;
 	counter.arcaneMage += 2;
 	counter.combatRogue += 2;
@@ -83,7 +83,7 @@ let playstyleReckless = function() {
 	counter.demonologyWarlock -= 3;
 }
 
-let playstyleUtility = function() {
+const playstyleUtility = () => {
 	counter.elementalShaman += 2;
 	counter.restorationDruid += 2;
 	counter.survivalHunter += 2;
@@ -110,7 +110,7 @@ let playstyleUtility = function() {
 	counter.furyWarrior -= 2;
 }
 
-let rangeRanged = function() {
+const rangeRanged = () => {
 	counter.afflictionWarlock += 2;
 	counter.shadowPriest += 2;
 	counter.restorationDruid += 2;
@@ -142,7 +142,7 @@ let rangeRanged = function() {
 	counter.frostDeathKnight -= 2;
 }
 
-let rangeMelee = function() {
+const rangeMelee = () => {
 	counter.feralDruid += 2;
 	counter.assassinationRogue += 2;
 	counter.retributionPaladin += 2;
@@ -174,7 +174,7 @@ let rangeMelee = function() {
 	counter.arcaneMage -= 2;
 }
 
-let rangeSupport = function() {
+const rangeSupport = () => {
 	counter.holyPriest += 2;
 	counter.restorationDruid += 2;
 	counter.disciplinePriest += 2;
@@ -204,11 +204,36 @@ let rangeSupport = function() {
 	counter.furyWarrior -= 2;
 }
 
-let rangeIndifferent = function() {
+const rangeIndifferent = () => {
+	counter.holyPriest += 2;
+	counter.restorationDruid += 2;
+	counter.disciplinePriest += 2;
+	counter.bloodDeathKnight += 2;
+	counter.restorationShaman += 2;
+	counter.feralDruid += 2;
+	counter.protectionPaladin += 2;
 	counter.holyPaladin += 2;
-	counter.demonologyWarlock += 1;
+	counter.protectionWarrior += 2;
+	counter.elementalShaman += 2;
+	counter.shadowPriest += 2;
+	counter.balanceDruid += 2;
+	counter.unholyDeathKnight += 2;
+	counter.frostDeathKnight += 2;
+	counter.fireMage += 2;
+	counter.assassinationRogue += 2;
+	counter.combatRogue += 2;
+	counter.subtletyRogue += 2;
+	counter.afflictionWarlock += 2;
+	counter.arcaneMage += 2;
+	counter.destructionWarlock += 2;
+	counter.demonologyWarlock += 2;
+	counter.marksmanshipHunter += 2;
+	counter.frostMage += 2;
+	counter.enhancementShaman += 2;
+	counter.beastmasteryHunter += 2;
+	counter.furyWarrior += 2;
 }
- let roleHealer = function() {
+const roleHealer = () => {
 	counter.restorationDruid += 3;
 	counter.holyPriest += 3;
 	counter.restorationShaman += 3;
@@ -240,7 +265,7 @@ let rangeIndifferent = function() {
 	counter.afflictionWarlock -= 2;
  }
 
-let roleTank = function() {
+const roleTank = () => {
 	counter.feralDruid += 3;
 	counter.protectionWarrior += 3;
 	counter.protectionPaladin += 3;
@@ -273,7 +298,7 @@ let roleTank = function() {
 	counter.arcaneMage -= 2;
 }
 
-let roleDamage = function() {
+const roleDamage = () => {
 	counter.fireMage += 3;
 	counter.frostMage += 3;
 	counter.arcaneMage += 3;
@@ -305,11 +330,37 @@ let roleDamage = function() {
 	counter.bloodDeathKnight -= 2;
 }
 
-let roleFlexible = function() {
-	counter.feralDruid +=2;
+const roleFlexible = () => {
+	counter.holyPriest += 2;
+	counter.restorationDruid += 2;
+	counter.disciplinePriest += 2;
+	counter.bloodDeathKnight += 2;
+	counter.restorationShaman += 2;
+	counter.feralDruid += 2;
+	counter.protectionPaladin += 2;
+	counter.holyPaladin += 2;
+	counter.protectionWarrior += 2;
+	counter.elementalShaman += 2;
+	counter.shadowPriest += 2;
+	counter.balanceDruid += 2;
+	counter.unholyDeathKnight += 2;
+	counter.frostDeathKnight += 2;
+	counter.fireMage += 2;
+	counter.assassinationRogue += 2;
+	counter.combatRogue += 2;
+	counter.subtletyRogue += 2;
+	counter.afflictionWarlock += 2;
+	counter.arcaneMage += 2;
+	counter.destructionWarlock += 2;
+	counter.demonologyWarlock += 2;
+	counter.marksmanshipHunter += 2;
+	counter.frostMage += 2;
+	counter.enhancementShaman += 2;
+	counter.beastmasteryHunter += 2;
+	counter.furyWarrior += 2;
 }
 
-let aestheticInnate = function() {
+const aestheticInnate = () => {
 	counter.retributionPaladin += 2;
 	counter.frostDeathKnight += 2;
 	counter.bloodDeathKnight += 2;
@@ -339,7 +390,7 @@ let aestheticInnate = function() {
 	counter.furyWarrior -= 2;
 }
 
-let aestheticScholar = function() {
+const aestheticScholar = () => {
 	counter.afflictionWarlock += 2;
 	counter.fireMage += 2;
 	counter.balanceDruid += 2;
@@ -372,7 +423,7 @@ let aestheticScholar = function() {
 	counter.furyWarrior -= 2;
 }
 
-let aestheticMartial = function() {
+const aestheticMartial = () => {
 	counter.subtletyRogue += 2;
 	counter.assassinationRogue += 2;
 	counter.combatRogue += 2;
@@ -401,6 +452,32 @@ let aestheticMartial = function() {
 	counter.holyPaladin -= 2;
 }
 
-let aestheticIndifferent = function () {
-	counter.survivalHunter += 1;
+const aestheticIndifferent = () => {
+	counter.holyPriest += 2;
+	counter.restorationDruid += 2;
+	counter.disciplinePriest += 2;
+	counter.bloodDeathKnight += 2;
+	counter.restorationShaman += 2;
+	counter.feralDruid += 2;
+	counter.protectionPaladin += 2;
+	counter.holyPaladin += 2;
+	counter.protectionWarrior += 2;
+	counter.elementalShaman += 2;
+	counter.shadowPriest += 2;
+	counter.balanceDruid += 2;
+	counter.unholyDeathKnight += 2;
+	counter.frostDeathKnight += 2;
+	counter.fireMage += 2;
+	counter.assassinationRogue += 2;
+	counter.combatRogue += 2;
+	counter.subtletyRogue += 2;
+	counter.afflictionWarlock += 2;
+	counter.arcaneMage += 2;
+	counter.destructionWarlock += 2;
+	counter.demonologyWarlock += 2;
+	counter.marksmanshipHunter += 2;
+	counter.frostMage += 2;
+	counter.enhancementShaman += 2;
+	counter.beastmasteryHunter += 2;
+	counter.furyWarrior += 2;
 }
