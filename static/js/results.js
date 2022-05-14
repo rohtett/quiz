@@ -6,7 +6,7 @@ window.onload = () => {
 		sessionStorage.removeItem("progress");
 		sessionStorage.removeItem("state");
 		Object.keys(sessionStorage).forEach((key) => {
-			eval(sessionStorage.getItem(key));
+			eval(sessionStorage.getItem(key)+"()");
 		})
 		sessionStorage.setItem("state", "submit");
 		//sorting an object; first add each key-value pair as an array
@@ -76,12 +76,17 @@ const parseResult = function(string) {
 }
 let tableLabels = document.querySelectorAll("table div");
 let tableProgress = document.querySelectorAll("table progress");
+//these will fill in information on the results page
 const classInfo = (values) => {
+	//the title at the top which displays the top result
 	let topMatch = new parseResult(values[0]);
 	document.getElementById("title").innerHTML= topMatch.parseSpec();
+	//the image
 	let classBanner = topMatch.getClass()[0].replace(" ", "-") + "-" + "class" + "-"+ "banner" + ".png";
 	document.querySelector("#result-output img").src= `static/media/${classBanner}`
+	//empty for future implementation
 	document.getElementById("specialisation-information").innerHTML = "";
+	//get the other two specialisations available to this class
 	let proff= (JSON.stringify(topMatch.getClass()[0]).replaceAll("\"", ""));
 	let specialisations = Object.keys(counter);
 	specialisations = specialisations.filter(value => value.includes(proff)&&value!=values[0]);
@@ -90,13 +95,15 @@ const classInfo = (values) => {
 	let offspecTwo= new parseResult(specialisations[1]);
 	document.querySelector("#role-2 h6").innerHTML = offspecTwo.spec;
 }
+//write info about the top 5 results
 function getResult(values) {
+	//slice the results to get top 5
 	let results = values.slice(0,5);
 	tableLabels[0].parentNode.parentNode.classList.add("specFocus");
 	classInfo(results[0]);
 	results.forEach((each, i) => {
 		let temp = new parseResult(results[i][0]);
-		tableLabels[i].innerHTML = temp.parseSpec();
+		tableLabels[i].innerHTML = temp.parseSpec()+ " " +((results[i][1]/10)*100)+"%";
 		tableProgress[i].value = results[i][1];
 		tableLabels[i].parentNode.parentNode.addEventListener("click", function() {
 			tableLabels.forEach((node) => {

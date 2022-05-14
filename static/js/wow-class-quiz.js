@@ -5,7 +5,10 @@ window.onload = () => {
 	}
 	if (document.getElementById("progress")) {
 	document.getElementById("progress").value = (progress/(sessionStorage.length-1))
-}
+	}
+	if (sessionStorage[parseInt(sessionStorage.progress)].length > 1) {
+		document.getElementById(sessionStorage[parseInt(sessionStorage.progress)]).checked = "true";
+	}
 }
 let progress = parseInt(sessionStorage.progress);
 //"next" function for instructional page
@@ -37,10 +40,10 @@ const confirmReset = () => {
 	let progress = 1;
 	sessionStorage.setItem("progress", progress);
 	//placeholders for each question. this is used to track total progress
-	sessionStorage.setItem(1, undefined);
-	sessionStorage.setItem(2, undefined);
-	sessionStorage.setItem(3, undefined);
-	sessionStorage.setItem(4, undefined);
+	sessionStorage.setItem(1, "");
+	sessionStorage.setItem(2, "");
+	sessionStorage.setItem(3, "");
+	sessionStorage.setItem(4, "");
 	window.location.href = 'wow-class-quiz-1.html';
 }
 const back = () => {
@@ -56,7 +59,7 @@ const next = () => {
 	//find the answer selected
 	let selection = document.querySelector("input:checked");
 	if (selection) {
-		let question = selection.id+"()";
+		let question = selection.id;
 		sessionStorage.setItem(progress, question);
 		progress += 1;
 		//if not at question

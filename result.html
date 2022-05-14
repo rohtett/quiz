@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -38,7 +38,7 @@
 			<div id="quiz">
 				<h4>Which World of Warcraft Class Is the Best Choice for You?</h4>
 				<div id="result-output">
-					<img src="#">
+					<img src="#" alt="Class Banner Image">
 					<article>
 						<h5 id="title">Class here</h5>
 						<div id="specialisation-information">
@@ -46,7 +46,9 @@
 						</div>
 						<div id="roles-available">
 							<table>
-								Additional Roles Available:
+								<tr>
+									<td>Additional Roles Available:</td>
+								</tr>
 								<tr>
 									<td id="role-1"><h6>Role 1</h6>
 									<td id="role-2"><h6>Role 2</h6>
@@ -69,7 +71,7 @@
 							<div id="resultOne">test</div>
 						</th>
 						<td>
-							<progress class="compatability" value="5" "min="0" max="10"></progress>
+							<progress class="compatability" value="5" max="10"></progress>
 						</td>
 					</tr>
 					<tr>
@@ -77,7 +79,7 @@
 							<div id="resultTwo">test</div>
 						</th>
 						<td>
-							<progress class="compatability" value="5" "min="0" max="10"></progress>
+							<progress class="compatability" value="5" max="10"></progress>
 						</td>
 					</tr>
 					<tr>
@@ -85,7 +87,7 @@
 							<div id="resultThree">test</div>
 						</th>
 						<td>
-							<progress class="compatability" value="5" "min="0" max="10"></progress>
+							<progress class="compatability" value="5" max="10"></progress>
 						</td>
 					</tr>
 					<tr>
@@ -93,7 +95,7 @@
 							<div id="resultFour">test</div>
 						</th>
 						<td>
-							<progress class="compatability" value="5" "min="0" max="10"></progress>
+							<progress class="compatability" value="5" max="10"></progress>
 						</td>
 					</tr>
 					<tr>
@@ -101,15 +103,15 @@
 							<div id="resultFive">test</div>
 						</th>
 						<td>
-							<progress class="compatability" value="5" "min="0" max="10"></progress>
+							<progress class="compatability" value="5" max="10"></progress>
 						</td>
 					</tr>
 				</table>
 				<div id="nav-buttons">
-					<button type="button" id="reset" onclick="restart()" id="reset">Reset</button>
+					<button type="button" id="reset" onclick="restart()">Reset</button>
 					<div>
-						<button type="button" id="back" onclick="back()" disabled="true">Back</button>
-						<button type="button" id="next" onclick="next()" disabled="true">Next</button>
+						<button type="button" id="back" onclick="back()" disabled>Back</button>
+						<button type="button" id="next" onclick="next()" disabled>Next</button>
 					</div>
 				</div>
 			</div>
