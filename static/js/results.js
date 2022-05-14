@@ -57,19 +57,28 @@ const classes = function() {
 	this.survivalHunter = 0;
 	this.unholyDeathKnight = 0;
 }
+//this function will extract the class values from the results
+//for example if you input "subtletyRogue", it will return "Subtlety", Rogue" and "Subtlety Rogue"
 let counter = new classes();
 const parseResult = function(string) {
-	//some guidance for match function found here	//https://stackoverflow.com/questions/7888238/javascript-split-string-on-uppercase-characters
+	//some guidance for match function found here
+	//https://stackoverflow.com/questions/7888238/javascript-split-string-on-uppercase-characters
+	//the spec refers to the specialisaiton... in this case "Subtlety"
 	this.spec = string[0].toUpperCase() + (string.match(/[a-z]+/g)[0]).slice(1);
+	//class refers to "Rogue"
 	this.getClass = function() {
 		let className = string.match(/[A-Z][a-z]+/g)
+		//if the class has TWO words e.g. "DeathKnight"
 		if (className.length > 1) {
+			//puts them both together
 			let name = [(className[0] + " " + className[1])]
 			return name;
 		} else {
+			//just returns the value above
 			return className;
 		}
 	}
+	//parseResult will return "Subtlety Rogue"
 	parseResult.prototype.parseSpec = function() {
 		return this.spec + " " + this.getClass()
 	}
@@ -77,6 +86,37 @@ const parseResult = function(string) {
 let tableLabels = document.querySelectorAll("table div");
 let tableProgress = document.querySelectorAll("table progress");
 //these will fill in information on the results page
+//write info about the top 5 results
+function getResult(values) {
+	//slice the results to get top 5
+	let results = values.slice(0,5);
+	//focuses the selected result. this will change to whichever result the user picks
+	//from the list
+	tableLabels[0].parentNode.parentNode.classList.add("specFocus");
+	//call the function to view the TOP result
+	classInfo(results[0]);
+	results.forEach((each, i) => {
+		//creates a temp object using the parseResult object creator to reference
+		//to each of the class, spec, and class+spec values
+		let temp = new parseResult(results[i][0]);
+		//writes the parse spec value "Subtlety Rogue" and a percentage 80%
+		tableLabels[i].innerHTML = temp.parseSpec()+ " " +((results[i][1]/10)*100)+"%";
+		//inputs the value to the progress bar
+		tableProgress[i].value = results[i][1];
+		//click event which changes the topResult without changing the bar at the
+		//bottom since the sessionStorage remains unchanged
+		tableLabels[i].parentNode.parentNode.addEventListener("click", function() {
+			tableLabels.forEach((node) => {
+				//remove focus from all
+				node.parentNode.parentNode.classList.remove("specFocus");
+			})
+			//call that result
+			classInfo(results[i]);
+			//focus the correct one
+			this.classList.add("specFocus");
+		})
+	})
+}
 const classInfo = (values) => {
 	//the title at the top which displays the top result
 	let topMatch = new parseResult(values[0]);
@@ -94,23 +134,4 @@ const classInfo = (values) => {
 	document.querySelector("#role-1 h6").innerHTML = offspecOne.spec;
 	let offspecTwo= new parseResult(specialisations[1]);
 	document.querySelector("#role-2 h6").innerHTML = offspecTwo.spec;
-}
-//write info about the top 5 results
-function getResult(values) {
-	//slice the results to get top 5
-	let results = values.slice(0,5);
-	tableLabels[0].parentNode.parentNode.classList.add("specFocus");
-	classInfo(results[0]);
-	results.forEach((each, i) => {
-		let temp = new parseResult(results[i][0]);
-		tableLabels[i].innerHTML = temp.parseSpec()+ " " +((results[i][1]/10)*100)+"%";
-		tableProgress[i].value = results[i][1];
-		tableLabels[i].parentNode.parentNode.addEventListener("click", function() {
-			tableLabels.forEach((node) => {
-				node.parentNode.parentNode.classList.remove("specFocus");
-			})
-			classInfo(results[i]);
-			this.classList.add("specFocus");
-		})
-	})
 }

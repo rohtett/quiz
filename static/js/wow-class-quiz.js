@@ -3,9 +3,11 @@ window.onload = () => {
 	if (sessionStorage.state == "submit") {
 		window.location.href = "result.html";
 	}
+	//update progress bar
 	if (document.getElementById("progress")) {
-	document.getElementById("progress").value = (progress/(sessionStorage.length-1))
+		document.getElementById("progress").value = (progress/(sessionStorage.length-1))
 	}
+	//selects the previous answer if one has been saved in session storage
 	if (sessionStorage[parseInt(sessionStorage.progress)].length > 1) {
 		document.getElementById(sessionStorage[parseInt(sessionStorage.progress)]).checked = "true";
 	}

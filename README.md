@@ -26,13 +26,15 @@ This is a simple quiz which will allocate you a given class based off your answe
 - [x] A reset button which will take you back to the beginning of the quiz and restart your progress.
 - [x] A modal for when pressing the "Reset" button so that the user would not reset their progress unintentionally. 
 - [x] A method of accessing the instructional information from any page in the case they forget the purpose of any navigation buttons. 
+- [x] The back button now automatically selects the previous option which you had selected.
 ### index.html
 - [x] An instructional page which can inform you as to what all of the buttons on the page will do. 
 - [x] An automatic redirect which will take the user to the results page as long as they have already completed the test without resetting their progress. 
-### results.html 
+### results.html
 - [x] A result display which includes a class banner relevant to the class they got assigned. Each class has the same banner regardless of which Specialisation they were assigned.
 - [x] The top five results given to the user based off the quiz answers that will show a progress bar relating to their compatability. Each result will navigate the user to the relevant Class and Specialisation combination page where they would be able to see their result. 
 - [x] Information about the assigned class, which displays their other roles.
+- [x] A percentage which showed compatibality for each result.
 - [ ] Information displayed about the playstyle of each specialisation result.
 - [ ] The ability to go to each relevant specialisation page by clicking on the specialisation name relevant to the class displayed.
 ## Technologies Used
